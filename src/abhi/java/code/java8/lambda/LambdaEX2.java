@@ -4,6 +4,7 @@ package abhi.java.code.java8.lambda;
 interface Printable{
     void print(String message);
 }
+
 public class LambdaEX2 {
     public static void main(String[] args) {
 

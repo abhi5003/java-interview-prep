@@ -1,6 +1,6 @@
 package abhi.java.code.java8.lambda;
 
-
+@FunctionalInterface
 interface Drawable{
     void draw();
 }

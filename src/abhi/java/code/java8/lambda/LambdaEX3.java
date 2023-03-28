@@ -1,8 +1,10 @@
 package abhi.java.code.java8.lambda;
 
+@FunctionalInterface
 interface Addable{
     int add(int a, int b);
 }
+
 public class LambdaEX3 {
     public static void main(String[] args) {
 
