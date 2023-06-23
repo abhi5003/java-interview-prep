@@ -6,7 +6,7 @@ import java.util.List;
 
 public class StreamAggregateEX {
     public static void main(String[] args) {
-        List<Integer> list= Arrays.asList(23, 45, 56, 32, 57, 33);
+        List<Integer> list= Arrays.asList(23, 45, 56, 32, 57, 33,53);
         // min(), max() and count()
 
         System.out.println(list.stream().count());
