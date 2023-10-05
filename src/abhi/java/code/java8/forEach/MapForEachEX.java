@@ -25,5 +25,7 @@ public class MapForEachEX {
             System.out.println(k+" "+v.getName()+" "+ v.getAge());
         });
 
+        map.entrySet().stream().forEach((k) -> System.out.println(k.getValue().getName()));
+
     }
 }

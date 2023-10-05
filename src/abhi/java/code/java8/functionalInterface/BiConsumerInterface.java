@@ -23,6 +23,7 @@ public class BiConsumerInterface {
         map.put(4, "Shuresh");
         map.put(5, "Rekha");
 
+        //Bi consumer foreach method
         map.forEach((k, v)->{
             System.out.println(k+" "+v);
 
