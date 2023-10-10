@@ -1,11 +1,13 @@
 package abhi.java.code.design_Patterns;
 
 
+import java.io.*;
+
 public class SingletonExample {
 	 
 	// Creation design pattern
 	// Only one instance of class should exist
-	// Other classes should able to get instance of singleton
+	// Other classes should be able to get instance of singleton
 	// Used in logging, cache, driver, session
 	
 	//private and static filed
@@ -21,6 +23,7 @@ public class SingletonExample {
     
     System.out.println(instance1);
   }
+
 }
 
 
@@ -69,9 +72,10 @@ class SingletonEagar {
 	    return instance;
 	  }
 	}
-	
 
-	// Singleton synchronized using block with double checking
+
+
+	// Singleton synchronized using block with double-checking
 
 	class SingletonSynchronized {
 		
@@ -90,5 +94,23 @@ class SingletonEagar {
 	    return instance;
 	  }
 	}
+
+
+
+// preventing to break from serlisation issue
+
+class SingletonSerialization implements Serializable {
+
+	// public instance initialized when loading the class
+	public static SingletonSerialization instance = new SingletonSerialization();
+
+	private SingletonSerialization()
+	{
+		// private constructor
+	}
+
+	// implement readResolve method
+	protected Object readResolve() { return instance; }
+}
 
 

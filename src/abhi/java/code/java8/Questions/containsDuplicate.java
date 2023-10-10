@@ -22,5 +22,7 @@ public class containsDuplicate {
         String input="ilovejavatechie";
        Arrays.stream(input.split("")).collect(Collectors.groupingBy(Function.identity(), Collectors.counting())).entrySet().forEach(System.out::print);
 
+
+
     }
 }
