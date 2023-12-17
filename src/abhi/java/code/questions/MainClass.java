@@ -25,7 +25,7 @@ public class MainClass {
 
 //        System.out.println(sortEmpBySalary(listOfEmp));
 
-        System.out.println(checkDistinct(nums));
+      sortMapBasedUponValue();
 
     }
 
@@ -182,5 +182,65 @@ public class MainClass {
 
     private static void CubeAndFilterExample(List<Integer> nums){
         nums.stream().map(i->i*i*i).filter(i->i>50).forEach(System.out::println);
+    }
+
+    private static void convertToUpperCase(){
+        List<String> listOfString = Arrays.asList("explained", "through", "programs");
+
+        listOfString.stream().map(String::toUpperCase).forEach(System.out::println);
+    }
+
+    private static void groupByKeyBasedUponValueCount(){
+        List<String> names = Arrays.asList("AA", "BB", "AA", "CC");
+
+        Map<String, Long> groupby= names.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+        System.out.println(groupby);
+    }
+
+    private static void findDuplicateWithCount(){
+        List<String> names = Arrays.asList("AA", "BB", "AA", "CC", "LL", "BB");
+        Map<String, Long> groupby=null;
+
+//        Map<String, Long> groupby= names.stream().filter(i->Collections.frequency(names, i)>1L)
+//                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+
+
+           names.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+                   .entrySet().stream()
+                   .filter(i->i.getValue()>1L)
+                   .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+
+        System.out.println(groupby);
+    }
+
+    private static void findCountOfChars(){
+         String s = "string data to count each character";
+         Map<String, Long> str =Arrays.stream(s.split(""))
+                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+
+
+        System.out.println(str);
+    }
+
+    private static void sortMapBasedUponValue(){
+        Map<String, Integer> unsortMap = new HashMap<>();
+        unsortMap.put("z", 10);
+        unsortMap.put("b", 5);
+        unsortMap.put("a", 6);
+        unsortMap.put("c", 20);
+        unsortMap.put("d", 1);
+        unsortMap.put("e", 7);
+        unsortMap.put("y", 8);
+        unsortMap.put("n", 99);
+        unsortMap.put("g", 50);
+        unsortMap.put("m", 2);
+        unsortMap.put("f", 9);
+
+        Map<String, Integer> result = unsortMap.entrySet().stream()
+                .sorted(Map.Entry.comparingByValue())
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
+                        (oldValue, newValue) -> oldValue, LinkedHashMap::new));
+
+        System.out.println(result);
     }
 }
