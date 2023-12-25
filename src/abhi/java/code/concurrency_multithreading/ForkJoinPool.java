@@ -6,7 +6,9 @@ public class ForkJoinPool {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+        Fibonacci fib=new Fibonacci(10);
+		int res=fib.compute();
+		System.out.println(res);
 	}
 
 }
