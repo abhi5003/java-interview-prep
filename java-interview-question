@@ -1,0 +1,275 @@
+
+Q1. @Component vs @Service vs @Repository
+https://stackoverflow.com/questions/6827752/whats-the-difference-between-component-repository-service-annotations-in
+
+Q2. What will happen if you use @Service over a DAO?
+https://stackoverflow.com/questions/43366460/why-service-on-dao#:~:text=In%20your%20scenario%2C%20it%20has,use%20%40Repository%20for%20dao%20classes.
+
+Q3. Explain Spring Bean Lifecycle
+https://www.geeksforgeeks.org/bean-life-cycle-in-java-spring/
+
+Q4. How will you call the @PreDestroy marked methods in a standalone application?
+https://stackoverflow.com/questions/16373276/predestroy-method-of-a-spring-singleton-bean-not-called
+
+Q5. Explain the helper class that initializes and destroys the web application context.
+
+Q6. What RestClients have you used in your project?
+https://www.youtube.com/watch?v=ECAhXdFrBaE
+
+Q7. getForEntity() vs postForEntity()
+https://stackoverflow.com/questions/52364187/resttemplate-exchange-vs-postforentity-vs-execute
+
+
+Q8. What are the uses of ResponseEntity?
+https://stackoverflow.com/questions/26549379/when-use-responseentityt-and-restcontroller-for-spring-restful-applications
+
+Q9. What should be the delete API method status code?
+https://www.linkedin.com/pulse/delete-rest-200-204-response-code-abhijit-mazumder/
+
+Q10. Why should you handle response timeout while calling any API?
+https://howtodoinjava.com/spring-boot/spring-boot-rest-api-timeout-examples/
+
+Q11. Explain the differences between Server timeout and Read timeout.
+https://www.baeldung.com/java-socket-connection-read-timeout#:~:text=From%20the%20client%20side%2C%20the,compared%20to%20the%20preset%20timeout.
+
+Q12. What is versioning in REST? What ways can you use to implement versioning?
+
+Q13. How does Basic Authentication work in REST API?
+
+Q14. Should you use JWT or Session-based authentication in the microservices environment?
+https://blogs.halodoc.io/user-authentication-jwt-vs-session/#:~:text=JWTs%20are%20ideal%20for%20stateless,management%2C%20and%20sensitive%20data%20protection.
+
+Q15. What is content negotiation?
+
+Q16. What are the cross-cutting concerns in Spring? How do you implement them in microservices architecture?
+
+Q17. How to create custom validators in Spring?
+
+Q18. Core Java interview questions and answers for experienced
+
+Q19. How HashMap works internally?
+
+Q20. List vs Set
+
+Q21. Java interview questions coding
+
+Q22. ArrayList Internal coding hands-on questions
+
+Q23. Collection coding interview questions in Java
+
+Q24. Does defining the constructor capacity in ArrayList increase performance?
+
+Q25. How ArrayList works internally?
+
+Q26. Difference between fail-fast/fail-safe collections
+
+Q27. Which types of collections consume more memory: fail-fast or fail-safe?
+
+Q28. Core Java coding questions in collection iterator.
+
+Q29. Can you modify the collection returned by Arrays.asList()?
+https://stackoverflow.com/questions/7885573/remove-on-list-created-by-arrays-aslist-throws-unsupportedoperationexception
+
+Q30. Questions on ConcurrentModificationException and CopyOnWriteArrayList.
+https://medium.com/javarevisited/4-essential-techniques-for-tackling-concurrency-fixing-the-concurrentmodificationexception-468d8e22b496
+
+Q31. Explain the Singleton design pattern. How is Spring's singleton scope different from the GOF singleton?
+
+Q32. Give me a code walkthrough of the Spring Security internal workflow.
+
+33. Difference between Hibernate and JDBC (Hibernate vs JDBC)
+34. Session VS Session Factory (Differences)
+35. Can you create multiple session factory objects? Justify your answer!
+36. What is the equivalent object of the session in JPA?
+37. What is persistence context in JPA / Hibernate?
+38. Explain the first level of caching in Hibernate.
+39. Justify the difference between get() and load() in Hibernate.
+40. get method Vs load method [Coding Challenge]
+41. Explain the transient state in JPA/ Hibernate.
+42. What is a detached state in Hibernate?
+43. How to detach an entity object from the persistence state without closing the session?
+44. Coding challenge on Hibernate states.
+45. Why do we need a connection pool?
+46. How will you implement connection pooling in your project?
+47. What are the fetch types available in Hibernate? Explain how will you use it in real-time.
+48. Eager Vs Lazy code practice.
+49. What is a @GeneratedValue annotation? Explain the different generation types available in JPA / Hibernate.
+50. Code Practice [Auto Vs Identity Vs Table generation type]
+51. Explain the advantages of Named queries in Hibernate/JPA?
+52. What is Criteria API in Hibernate? Explain the advantages.
+Certainly! Here are the questions numbered starting from 53:
+
+53. What is a Marker interface in Java?
+
+54. Tell me 5 Spring Exceptions that you have come across.
+
+55. Tell me 5 Spring Annotations that you have used? (Excluding the stereotype annotations)
+
+56. Is it required to write @Repository annotations in Spring Data JPA?
+
+57. Explain the Spring Data Project and the hierarchy?
+
+58. Use of @NoRepositoryBean in Spring Boot? Can we write @NoRepositoryBean on top of our Repository interfaces?
+
+59. What is a Java config file, and what are its limitations?
+
+60. How does a CGLIB Proxy work with @Bean?
+
+61. @Component vs @Bean. What is the difference between creating a bean with @Bean and creating a bean with @Component?
+
+62. What is a BeanFactoryPostProcessor?
+
+63. Bean Factory Post Processor Code walkthrough.
+
+64. What do you mean by a @Transactional Annotation, and explain the Transactional Propagation in Spring?
+
+65. Transactional Propagation Explained!
+
+66. Update vs Merge | Difference between the update and merge methods in JPA / Hibernate?
+
+67. application.properties vs application.yaml, which will load first?
+
+68. How is the dispatcher servlet set up in a Spring Boot project?
+
+69. How is the dispatcher servlet in Spring Boot auto-configured?
+
+70. How to create custom Java Exceptions?
+
+71. CompileTime Vs RunTime Exceptions. Checked vs Unchecked Exceptions in Java.
+
+72. How will you handle exceptions in Spring?
+
+73. Explain the need for a global exception handler in Spring Boot?
+
+74. Difference between @ControllerAdvice and @RestControllerAdvice?
+
+75. How will you handle a Bad Gateway exception when thrown from a REST client?
+
+76. What is ThreadLocal in Java? Tell me a real-time scenario if you have used it ever.
+
+77. Spring SecurityContext scope explained!
+
+
+78. @Controller Vs @RestController
+
+79. How does a Spring Boot application bootstrap?
+
+80. REST API Best practices
+
+81. Microservices interview questions
+
+82. Monolithic Architecture Vs Microservices Architecture
+
+83. How to manage IPs and servers in a microservices architecture
+
+84. How Service Discovery and Registration works? (A problem Scenario)
+
+85. How is Client-side load balancing different from Server-Side load balancing?
+
+86. Does server-side load balancing cause a single point of failure?
+
+87. How to handle failure in a microservices environment?
+
+88. How does the retry pattern work?
+
+89. How does a blocked thread cause issues in a microservices environment? (Knowledge Transfer)
+
+90. How to protect your microservices from random load?
+
+91. Circuit Breaker design pattern - Quick Knowledge Transfer
+
+92. Explain the Half-open state of a circuit breaker in Spring Boot
+
+93. How to track a slower Microservice that causes performance issues?
+
+94. How to track exceptions in a microservices environment?
+
+95. Entity Object Vs Value Object - When to use what?
+
+96. What is a one-to-one mapping and how to set it up with JPA/Hibernate?
+
+97. What is an exchange in RabbitMQ?
+
+
+https://medium.com/@anwar15ec11/mastering-java-interviews-in-2024-top-30-questions-and-answers-with-sample-code-examples-bf30bfef30ae
+
+********************************************************************************************************
+
+1. Print the occurnces of string using java 8
+  // String[] str={"Bangorle", "Delhi", "Pune", "Noiad", "Pune", "Delhi"};
+
+2. What is funcational interface
+3. what is advantage of default and static method in java 8
+4. Differnce b/w map and curcrretnhasmap
+5. explain internal working of courrenthasmap
+6. differnce b/w read write lock and reenternt lock
+
+7. Excusator service
+  https://medium.com/javarevisited/a-complete-guide-on-executorservice-in-java-67528f1a535b#:~:text=Let's%20See%20Some%20Methods%20of%20ExecutorService:%201.,that%20can%20be%20used%20to%20wait%20for
+
+8. Life cycle of IOC container
+9. Differnce b/w @qualifer vs @primary
+10. How you configure two database in application if one goes down other works
+11. How to handle exception in spring boot
+12. how to create composit key in hibernate
+13. How to achive bi-directional maping in this case @oneToMany
+14. Diffenance b/w bi-directional and uni-directional
+15. Lifecycle of hibernate object
+    https://www.geeksforgeeks.org/hibernate-lifecycle/
+
+14. What is SOLID design pattern
+15. What is volatitle keyword
+16. find maximum sallary by each deparment - Java 8
+16. what is computable futures
+17. setter injection vs constructor injection
+18. what is event driven architcrue 
+19. how to debug microserves failure
+20. how manage data entity in microservices spring boot  - need to foucs on event sourcing pattern
+
+************************************** Rest API **********************************************************
+https://github.com/bezkoder/spring-boot-security-login/blob/master/src/main/resources/application.properties
+
+
+https://www.hackerrank.com/blog/rest-api-interview-questions-every-developer-should-know/
+
+https://www.designgurus.io/course/grokking-microservices-design-patterns
+https://learn.microsoft.com/en-us/azure/architecture/patterns/
+https://dzone.com/articles/microservice-architecture-and-design-patterns-for
+
+**************************************** Micorservice*****************************************************
+
+https://github.com/Devinterview-io/microservices-interview-questions
+https://moderntechnologist.com/common-microservices-interview-questions-and-answers/
+https://github.com/bbiswal333/Microservices-Interview
+https://www.atlassian.com/microservices
+https://dev.to/apisix/how-to-choose-the-right-api-gateway-3f9i
+https://learn.microsoft.com/en-us/dotnet/architecture/microservices/architect-microservice-container-applications/direct-client-to-microservice-communication-versus-the-api-gateway-pattern
+https://github.com/microsoft/azure-spring-apps-training/tree/master
+https://learn.microsoft.com/en-us/training/modules/azure-spring-cloud-workshop/
+https://learn.microsoft.com/en-us/shows/learn-live/deploy-apps-java-azure-ep02-deploy-spring-microservices-azure
+
+https://www.youtube.com/watch?v=QiXK0B9FhO0
+
+https://javatechonline.com/microservices-tutorial/
+**********************************************************************************************************
+
+******************************************** LLD Round **************************************************
+
+1. OOPS - SOLID
+2. Clean coding
+3. Design Patterns
+   - Singleton
+   - Builder
+   - Factory & abastroty
+   - Adopertr
+   - Decder
+   - Observer
+
+
+*********************************************************************************************************
+
+https://www.youtube.com/watch?v=yg3WcAjmR90
+https://www.youtube.com/watch?v=UibU8g503G0
+https://www.youtube.com/watch?v=ylnzWg8yo44
+https://www.youtube.com/watch?v=0Fok5IPe1Jg
+
