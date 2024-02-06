@@ -1,0 +1,37 @@
+    public static int uniqueLetterString(String s) {
+        Map<Character, ArrayList<Integer>> indexMap = new HashMap<>();
+
+		//collect all the indices of each character and add it to a list
+        for(int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            indexMap.computeIfAbsent(c, k-> new ArrayList<>()).add(i);
+        }
+
+        int res = 0;
+
+        for(Map.Entry<Character, ArrayList<Integer>> kv: indexMap.entrySet()) {
+
+			//each character's occurence in String s
+            var allOccurrences = kv.getValue();
+            for(int i = 0; i < allOccurrences.size(); i++) {
+                int currentIndex = allOccurrences.get(i);
+
+				//if this is the first occurence, then the number of characters on the left is just it's current Index
+				//otherwise if it is not the first occurence, the number of characters on the left between this and its duplicate
+				//is just the difference between the current index and the previous index - 1
+                int left = i == 0 ? currentIndex : currentIndex - allOccurrences.get(i-1) - 1;
+
+				//if this is the last occurence, then the number of characters on the right is just the length of the string minus the current index - 1
+				//otherwise, if it is not the first occurence, then it will just be the difference between this and the index of its duplicate - 1
+                int right = i == allOccurrences.size() - 1 ? s.length() - currentIndex - 1 : allOccurrences.get(i+1) - currentIndex - 1;
+
+				//the number that this character can contribute to the final result
+				//is the number of characters that it can contribute to all the substrings built from the left, excluding the substrings that includes it's duplicate, if any
+				//plus
+				//it can contribute the same number of characters to all the substrings built from here to it's next duplicate, if any
+                res += 1 + left + (right * (left + 1));
+            }
+        }
+
+        return res;
+    }

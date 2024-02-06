@@ -1,5 +1,7 @@
 package abhi.java.code.questions;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -151,7 +153,7 @@ public class MainClass {
 
     }
 
-    private static void sortDescending(List<Integer> nums){
+    private static void sortDescending(@NotNull List<Integer> nums){
         nums.stream().sorted(Comparator.reverseOrder()).forEach(System.out::println);
     }
 
@@ -244,6 +246,12 @@ public class MainClass {
         System.out.println(result);
     }
 
+
+    // String[] str={"Bangorle", "Delhi", "Pune", "Noiad", "Pune", "Delhi"};
+    private Map<String, Long> countOcuances(String[] str){
+       Map<String, Long> mapOccur=Arrays.stream(str).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+        return mapOccur;
+    }
 
 
 }
