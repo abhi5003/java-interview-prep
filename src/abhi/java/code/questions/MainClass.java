@@ -54,6 +54,14 @@ public class MainClass {
         nums.stream().filter(i-> !set.add(i)).forEach(System.out::println);
     }
 
+    private static void findDuplicateWithoutSet(List<Integer> nums){
+
+       List<Integer> duplicateNum= nums.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting())).entrySet()
+                .stream().filter(i->i.getValue()>1)
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toList());
+    }
+
     /*
     * Given the list of integers, find the first element of the list using Stream functions?
     * */

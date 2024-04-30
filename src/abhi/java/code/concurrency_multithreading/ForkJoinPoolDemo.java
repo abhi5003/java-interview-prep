@@ -1,14 +1,22 @@
 package abhi.java.code.concurrency_multithreading;
 
+import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveTask;
 
-public class ForkJoinPool {
+public class ForkJoinPoolDemo {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-        Fibonacci fib=new Fibonacci(10);
-		int res=fib.compute();
-		System.out.println(res);
+//        Fibonacci fib=new Fibonacci(10);
+//		int res=fib.compute();
+//		System.out.println(res);
+
+		int n = 10; // Fibonacci number to calculate
+		ForkJoinPool forkJoinPool = new ForkJoinPool();
+		Fibonacci task = new Fibonacci(n);
+
+		int result = forkJoinPool.invoke(task);
+		System.out.println("Fibonacci(" + n + ") = " + result);
 	}
 
 }
