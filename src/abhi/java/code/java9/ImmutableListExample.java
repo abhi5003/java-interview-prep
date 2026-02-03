@@ -21,7 +21,7 @@ public class ImmutableListExample {
 
         fruits.add("Strawberry");
 
-        // Exception in thread "main"
+        // Exception in thread "Main"
         // java.lang.UnsupportedOperationException<String>
 
         // Java 9

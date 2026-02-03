@@ -63,7 +63,7 @@ final class Student{
          Student s = new Student("ABC", 101, map);
 
          // Calling the above methods 1,2,3 of class1
-         // inside main() method in class2 and
+         // inside Main() method in class2 and
          // executing the print statement over them
          System.out.println(s.getName());
          System.out.println(s.getRegNo());

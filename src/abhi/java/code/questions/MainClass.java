@@ -1,6 +1,6 @@
 package abhi.java.code.questions;
 
-import org.jetbrains.annotations.NotNull;
+
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -13,22 +13,9 @@ import java.util.stream.Stream;
 
 public class MainClass {
     public static void main(String[] args) {
-      List<Integer> nums= Arrays.asList(2, 3, 3, 11, 17, 5, 8, 17, 10, 47, 23, 74);
 
-        // list of employee
-        List<Employee> listOfEmp= new ArrayList<>();
 
-        // populating employee list
-        listOfEmp.add(new Employee(1, "Ashok", 10000));
-        listOfEmp.add(new Employee(4, "Rounak", 40000));
-        listOfEmp.add(new Employee(3, "Satish", 30000));
-        listOfEmp.add(new Employee(2, "Rupesh", 20000));
-        listOfEmp.add(new Employee(5, "Priya", 50000));
-
-//        System.out.println(sortEmpBySalary(listOfEmp));
-
-      sortMapBasedUponValue();
-
+        findCharCount();
     }
 
     /*
@@ -161,7 +148,7 @@ public class MainClass {
 
     }
 
-    private static void sortDescending(@NotNull List<Integer> nums){
+    private static void sortDescending( List<Integer> nums){
         nums.stream().sorted(Comparator.reverseOrder()).forEach(System.out::println);
     }
 
@@ -261,5 +248,19 @@ public class MainClass {
         return mapOccur;
     }
 
+
+    private static void findCharCount(){
+     String input="string data to count each character";
+
+        Map<Character, Long> collect = input.chars()
+                .mapToObj(c -> (char) c)
+                .filter(c -> !Character.isWhitespace(c))
+                .collect(Collectors.groupingBy(s -> s, Collectors.counting()));
+
+
+        collect.forEach((ch, count) ->
+                System.out.println(" "+ ch +" : "+ count)
+                );
+    }
 
 }

@@ -12,7 +12,7 @@ public class ImmutableSetExample {
 //        fruits.forEach(e - > System.out.println(e));
 
         // You can't add Elements Immutable Set
-        // fruits.add("Strawberry"); // Exception in thread "main"
+        // fruits.add("Strawberry"); // Exception in thread "Main"
         // java.lang.UnsupportedOperationException
 
         // Example 2
