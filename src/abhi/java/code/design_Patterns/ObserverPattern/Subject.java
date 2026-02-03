@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Subject {
     private List<Observer> observers = new ArrayList<>();
-    private String loanDetails;
+    private Message message;
 
     public void register(Observer observer){
         observers.add(observer);
@@ -16,7 +16,6 @@ public class Subject {
     }
 
     public void setLoanDetails(Message message){
-        this.loanDetails=loanDetails;
         notifyAll(message);
     }
 

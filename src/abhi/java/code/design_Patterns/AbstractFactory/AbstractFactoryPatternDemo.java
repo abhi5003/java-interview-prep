@@ -14,6 +14,5 @@ public class AbstractFactoryPatternDemo {
         Shape shape4 = factory.getShape("SQUARE");
         shape4.draw();
 
-
     }
 }
