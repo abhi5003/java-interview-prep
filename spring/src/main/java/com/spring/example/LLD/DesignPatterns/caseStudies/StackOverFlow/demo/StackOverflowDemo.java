@@ -1,9 +1,14 @@
-package com.spring.example.LLD.DesignPatterns.caseStudies.StackOverFlow;
-
-import com.spring.example.LLD.DesignPatterns.caseStudies.StackOverFlow.model.*;
+package com.spring.example.LLD.DesignPatterns.caseStudies.StackOverFlow.demo;
 
 import java.util.*;
 import java.util.stream.Collectors;
+
+import com.spring.example.LLD.DesignPatterns.caseStudies.StackOverFlow.model.contract.Commentable;
+import com.spring.example.LLD.DesignPatterns.caseStudies.StackOverFlow.model.contract.ReputationObserver;
+import com.spring.example.LLD.DesignPatterns.caseStudies.StackOverFlow.model.contract.Votable;
+import com.spring.example.LLD.DesignPatterns.caseStudies.StackOverFlow.model.entity.*;
+import com.spring.example.LLD.DesignPatterns.caseStudies.StackOverFlow.model.enums.VoteType;
+import com.spring.example.LLD.DesignPatterns.caseStudies.StackOverFlow.service.ReputationManager;
 
 public class StackOverflowDemo {
 
@@ -11,8 +16,28 @@ public class StackOverflowDemo {
     private List<Question> questions = new ArrayList<>();
     private List<Answer> answers = new ArrayList<>();
     private List<Tag> tags = new ArrayList<>();
-    private List<ReputationEvent> reputationEvents = new ArrayList<>();
+    private List<ReputationObserver> observers = new ArrayList<>();
     private int nextId = 1;
+
+    public void attachObserver(ReputationObserver observer) {
+        observers.add(observer);
+    }
+
+    public void detachObserver(ReputationObserver observer) {
+        observers.remove(observer);
+    }
+
+    private void notifyVoteCast(Vote vote, Votable target) {
+        for (ReputationObserver o : observers) {
+            o.onVoteCast(vote, target);
+        }
+    }
+
+    private void notifyAnswerAccepted(Answer answer, Question question) {
+        for (ReputationObserver o : observers) {
+            o.onAnswerAccepted(answer, question);
+        }
+    }
 
     public User createUser(String username, String email, String password) {
         String id = "u" + nextId++;
@@ -63,47 +88,13 @@ public class StackOverflowDemo {
         String id = "v" + nextId++;
         Vote vote = new Vote(id, voter, type, target);
         target.addVote(vote);
-        User author = getVotableAuthor(target);
-
-        int reputationChange;
-        ReputationAction action;
-        if (target instanceof Answer) {
-            if (type == VoteType.UPVOTE) {
-                reputationChange = 10;
-                action = ReputationAction.ANSWER_UPVOTED;
-            } else {
-                reputationChange = -2;
-                action = ReputationAction.ANSWER_DOWNVOTED;
-            }
-        } else {
-            reputationChange = (type == VoteType.UPVOTE) ? 5 : -2;
-            action = ReputationAction.QUESTION_UPVOTED;
-        }
-
-        if (type == VoteType.DOWNVOTE) {
-            int voterPenalty = -1;
-            ReputationEvent voterEvent = new ReputationEvent("re" + nextId++, voter, ReputationAction.DOWNVOTE_GIVEN, voterPenalty, target instanceof Question ? ((Question)target).getId() : ((Answer)target).getId());
-            reputationEvents.add(voterEvent);
-            voter.updateReputation(voterPenalty);
-        }
-
-        reputationChange = (type == VoteType.DOWNVOTE && target instanceof Answer) ? -2 : reputationChange;
-
-        if (reputationChange != 0) {
-            ReputationEvent event = new ReputationEvent("re" + nextId++, author, action, reputationChange,
-                    target instanceof Question ? ((Question)target).getId() : ((Answer)target).getId());
-            reputationEvents.add(event);
-            author.updateReputation(reputationChange);
-        }
+        notifyVoteCast(vote, target);
         return true;
     }
 
     public void acceptAnswer(Question question, Answer answer) {
         question.acceptAnswer(answer);
-        ReputationEvent event = new ReputationEvent("re" + nextId++, answer.getAuthor(),
-                ReputationAction.ANSWER_ACCEPTED, 15, question.getId());
-        reputationEvents.add(event);
-        answer.getAuthor().updateReputation(15);
+        notifyAnswerAccepted(answer, question);
     }
 
     private User getVotableAuthor(Votable target) {
@@ -167,6 +158,8 @@ public class StackOverflowDemo {
 
     public static void main(String[] args) {
         StackOverflowDemo app = new StackOverflowDemo();
+        ReputationManager reputationManager = new ReputationManager();
+        app.attachObserver(reputationManager);
 
         System.out.println("=== STACKOVERFLOW DEMO ===\n");
 
@@ -215,7 +208,6 @@ public class StackOverflowDemo {
         app.castVote(alice, q2, VoteType.UPVOTE);
         app.castVote(alice, a1, VoteType.UPVOTE);
         app.castVote(charlie, a1, VoteType.UPVOTE);
-        app.castVote(alice, a2, VoteType.UPVOTE);
         app.castVote(alice, a1, VoteType.UPVOTE);
 
         System.out.println("\n--- Votes cast ---\n");
@@ -251,7 +243,7 @@ public class StackOverflowDemo {
             System.out.println("  " + u.getUsername() + ": " + u.getReputation());
         }
         System.out.println("\n=== REPUTATION EVENTS ===");
-        for (ReputationEvent e : app.reputationEvents) {
+        for (ReputationEvent e : reputationManager.getEvents()) {
             System.out.println("  " + e.getUser().getUsername() + " " + e.getAction() + " (" + e.getAmount() + ")");
         }
     }

@@ -1,6 +1,8 @@
-package com.spring.example.LLD.DesignPatterns.caseStudies.StackOverFlow.model;
+package com.spring.example.LLD.DesignPatterns.caseStudies.StackOverFlow.model.entity;
 
 import java.time.LocalDateTime;
+
+import com.spring.example.LLD.DesignPatterns.caseStudies.StackOverFlow.model.contract.Commentable;
 
 public class Comment {
     private String id;

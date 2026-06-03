@@ -1,4 +1,4 @@
-package com.spring.example.LLD.DesignPatterns.caseStudies.StackOverFlow.model;
+package com.spring.example.LLD.DesignPatterns.caseStudies.StackOverFlow.model.entity;
 
 public class Tag {
     private String id;

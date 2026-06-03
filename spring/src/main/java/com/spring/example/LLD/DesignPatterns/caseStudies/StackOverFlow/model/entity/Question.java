@@ -1,26 +1,43 @@
-package com.spring.example.LLD.DesignPatterns.caseStudies.StackOverFlow.model;
+package com.spring.example.LLD.DesignPatterns.caseStudies.StackOverFlow.model.entity;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Answer implements Votable, Commentable {
+import com.spring.example.LLD.DesignPatterns.caseStudies.StackOverFlow.model.contract.Commentable;
+import com.spring.example.LLD.DesignPatterns.caseStudies.StackOverFlow.model.contract.Votable;
+
+public class Question implements Votable, Commentable {
     private String id;
+    private String title;
     private String content;
     private User author;
-    private boolean isAccepted;
+    private List<Answer> answers;
+    private Answer acceptedAnswer;
+    private List<Tag> tags;
     private List<Vote> votes;
     private List<Comment> comments;
     private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
-    public Answer(String id, String content, User author) {
+    public Question(String id, String title, String content, User author, List<Tag> tags) {
         this.id = id;
+        this.title = title;
         this.content = content;
         this.author = author;
-        this.isAccepted = false;
+        this.answers = new ArrayList<>();
+        this.tags = new ArrayList<>(tags);
         this.votes = new ArrayList<>();
         this.comments = new ArrayList<>();
         this.createdAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
+    }
+
+    public void acceptAnswer(Answer answer) {
+        if (answers.contains(answer)) {
+            this.acceptedAnswer = answer;
+            answer.setAccepted(true);
+        }
     }
 
     @Override
@@ -53,12 +70,24 @@ public class Answer implements Votable, Commentable {
         comments.remove(comment);
     }
 
+    public void addAnswer(Answer answer) {
+        answers.add(answer);
+    }
+
     public String getId() {
         return id;
     }
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getContent() {
@@ -77,12 +106,28 @@ public class Answer implements Votable, Commentable {
         this.author = author;
     }
 
-    public boolean isAccepted() {
-        return isAccepted;
+    public List<Answer> getAnswers() {
+        return answers;
     }
 
-    public void setAccepted(boolean accepted) {
-        isAccepted = accepted;
+    public void setAnswers(List<Answer> answers) {
+        this.answers = answers;
+    }
+
+    public Answer getAcceptedAnswer() {
+        return acceptedAnswer;
+    }
+
+    public void setAcceptedAnswer(Answer acceptedAnswer) {
+        this.acceptedAnswer = acceptedAnswer;
+    }
+
+    public List<Tag> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<Tag> tags) {
+        this.tags = tags;
     }
 
     public void setVotes(List<Vote> votes) {
@@ -99,5 +144,13 @@ public class Answer implements Votable, Commentable {
 
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }
